@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"author": [
 		{
 			"email": "junu.pv@gmail.com",
@@ -15,16 +15,18 @@
 		"128": "images/icon_128.png"
 	},
 	"background": {
-		"scripts": [
-			"src/background.js"
-		]
+		"service_worker": "src/background.js"
 	},
 	"permissions": [
 		"tabs",
-		"http://*/*",
-		"https://*/*",
-		"storage"
+		"storage",
+		"scripting", "activeTab"
 	],
+	"host_permissions": [
+		"https://*/*",
+		"http://*/*"
+	],
+
 	"content_scripts": [
 		{
 			"css": [
@@ -37,7 +39,6 @@
 			],
 			"js": [
 				"src/jquery.js",
-				"libs/jquery.ime/libs/rangy/rangy-core.js",
 				"libs/jquery.ime/src/jquery.ime.js",
 				"libs/jquery.ime/src/jquery.ime.selector.js",
 				"libs/jquery.ime/src/jquery.ime.preferences.js",
@@ -56,23 +57,25 @@
 			]
 		}
 	],
-	"web_accessible_resources": [
-		"libs/jquery.ime/images/ime-active.png",
-		"libs/jquery.ime/images/ime-active.svg",
-		"libs/jquery.ime/images/ime-inactive.png",
-		"libs/jquery.ime/images/ime-inactive.svg",
-		"libs/jquery.ime/images/tick.png",
-		"libs/jquery.ime/images/tick.svg",
-		"libs/jquery.uls/images/icon-language.png",
-		"libs/jquery.uls/images/icon-language.svg",
-		"libs/jquery.uls/images/world_map.png",
-		"libs/jquery.uls/images/world_map.svg",
-		"libs/jquery.uls/images/close.png",
-		"libs/jquery.uls/images/close.svg",
-		"libs/jquery.uls/images/search.png",
-		"libs/jquery.uls/images/search.svg",
-		"libs/jquery.uls/images/clear.png",
-		"libs/jquery.uls/images/clear.svg",
-		"images/help.png"
-	]
+	"web_accessible_resources": [{
+		"resources": [ "libs/jquery.ime/images/ime-active.png",
+			"libs/jquery.ime/images/ime-active.svg",
+			"libs/jquery.ime/images/ime-inactive.png",
+			"libs/jquery.ime/images/ime-inactive.svg",
+			"libs/jquery.ime/images/tick.png",
+			"libs/jquery.ime/images/tick.svg",
+			"libs/jquery.uls/images/icon-language.png",
+			"libs/jquery.uls/images/icon-language.svg",
+			"libs/jquery.uls/images/world_map.png",
+			"libs/jquery.uls/images/world_map.svg",
+			"libs/jquery.uls/images/close.png",
+			"libs/jquery.uls/images/close.svg",
+			"libs/jquery.uls/images/search.png",
+			"libs/jquery.uls/images/search.svg",
+			"libs/jquery.uls/images/clear.png",
+			"libs/jquery.uls/images/clear.svg",
+			"images/help.png"
+		],
+		"matches": ["<all_urls>"]
+	}]
 }

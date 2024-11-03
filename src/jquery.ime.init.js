@@ -47,7 +47,7 @@ $( document ).ready( function () {
 
 	function initializeIME() {
 		// initialize rangy incase document.ready has already been fired
-		rangy.init();
+		// rangy.init();
 		$( 'body' ).on( 'focus.ime', 'input:not([type]), input[type=text], input[type=search], textarea, [contenteditable]', function () {
 			var $input = $( this );
 			$input.ime( {
@@ -107,15 +107,18 @@ $( document ).ready( function () {
 				// From version 26 onwards it is implemented using chrome.runtime.sendmessage.
 				runtimeOrExtension = chrome.runtime && chrome.runtime.sendMessage ? 'runtime' : 'extension';
 
-				chrome[runtimeOrExtension].sendMessage( { fileToInject: $.ime.sources[inputmethodId].source }, function ( response ) {
-					if ( response.injected ) {
-						console.log( inputmethodId + ' loaded.' );
-						deferred.resolve();
-					}
-					else {
-						console.log( 'Error in loading inputmethod ' + name + ' Error: ' + response.errorMessage );
-					}
-				} );
+				console.log($.ime.sources[inputmethodId].source);
+
+				chrome[runtimeOrExtension].sendMessage( { fileToInject: $.ime.sources[inputmethodId].source });
+				// chrome[runtimeOrExtension].sendMessage( { fileToInject: $.ime.sources[inputmethodId].source }, function ( response ) {
+				// 	if ( response.injected ) {
+				// 		console.log( inputmethodId + ' loaded.' );
+				// 		deferred.resolve();
+				// 	}
+				// 	else {
+				// 		console.log( 'Error in loading inputmethod ' + name + ' Error: ' + response.errorMessage );
+				// 	}
+				// } );
 
 				return deferred.promise();
 			}
