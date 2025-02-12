@@ -107,7 +107,8 @@ $( document ).ready( function () {
 				// From version 26 onwards it is implemented using chrome.runtime.sendmessage.
 				runtimeOrExtension = chrome.runtime && chrome.runtime.sendMessage ? 'runtime' : 'extension';
 
-				console.log($.ime.sources[inputmethodId].source);
+				// console.log($.ime.sources[inputmethodId].source);
+				// console.log(runtimeOrExtension);
 
 				chrome[runtimeOrExtension].sendMessage( { fileToInject: $.ime.sources[inputmethodId].source });
 				// chrome[runtimeOrExtension].sendMessage( { fileToInject: $.ime.sources[inputmethodId].source }, function ( response ) {
