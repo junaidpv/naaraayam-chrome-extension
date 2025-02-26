@@ -26,6 +26,10 @@ After cloning the repository, you need to run the following commmands
 
 It would include the jQuery.IME and jQuery.ULS libraries in the extension.
 
+Build the extension zip file
+----------------------------
+	npm run package
+
 
 Installation on Google Chrome
 -----------------------------
