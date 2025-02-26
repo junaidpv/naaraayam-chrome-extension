@@ -1,0 +1,31 @@
+{
+  "name": "naaraayam-chrome-extension",
+  "version": "0.0.2",
+  "description": "Naaraayam allows you to type in your native language from among 60+ languages.",
+  "keywords": [
+    "typing",
+    "ime",
+    "jquery.ime",
+    "input",
+    "method",
+    "multi-lingual"
+  ],
+  "homepage": "https://github.com/junaidpv/naaraayam-chrome-extension#readme",
+  "bugs": {
+    "url": "https://github.com/junaidpv/naaraayam-chrome-extension/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junaidpv/naaraayam-chrome-extension.git"
+  },
+  "license": "ISC",
+  "author": "Junaid PV",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "package": "node packager.js"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1"
+  }
+}
